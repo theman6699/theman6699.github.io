@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#fff" />
+  
+  <!-- PID Section -->
+  <g transform="translate(50, 50)">
+    <rect x="0" y="0" width="200" height="300" rx="10" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" />
+    <text x="100" y="30" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#0d47a1">PID</text>
+    
+    <!-- Block Diagram -->
+    <rect x="30" y="60" width="40" height="30" fill="#fff" stroke="#2196f3" /> <text x="50" y="80" text-anchor="middle" font-size="12">P</text>
+    <rect x="30" y="100" width="40" height="30" fill="#fff" stroke="#2196f3" /> <text x="50" y="120" text-anchor="middle" font-size="12">I</text>
+    <rect x="30" y="140" width="40" height="30" fill="#fff" stroke="#2196f3" /> <text x="50" y="160" text-anchor="middle" font-size="12">D</text>
+    
+    <text x="100" y="220" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Error Driven</text>
+    <text x="100" y="240" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Model Free</text>
+    <text x="100" y="260" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">SISO</text>
+  </g>
+
+  <!-- LQR Section -->
+  <g transform="translate(300, 50)">
+    <rect x="0" y="0" width="200" height="300" rx="10" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" />
+    <text x="100" y="30" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#1b5e20">LQR</text>
+    
+    <!-- Block Diagram -->
+    <rect x="50" y="80" width="100" height="40" fill="#fff" stroke="#4caf50" /> 
+    <text x="100" y="105" text-anchor="middle" font-size="14">u = -Kx</text>
+    
+    <text x="100" y="220" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">State Feedback</text>
+    <text x="100" y="240" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Model Based</text>
+    <text x="100" y="260" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">MIMO / Optimal</text>
+  </g>
+
+  <!-- Fuzzy PID Section -->
+  <g transform="translate(550, 50)">
+    <rect x="0" y="0" width="200" height="300" rx="10" fill="#fff3e0" stroke="#ff9800" stroke-width="2" />
+    <text x="100" y="30" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#e65100">Fuzzy PID</text>
+    
+    <!-- Block Diagram -->
+    <rect x="40" y="60" width="120" height="80" fill="#fff" stroke="#ff9800" /> 
+    <text x="100" y="90" text-anchor="middle" font-size="12">Fuzzy Logic</text>
+    <text x="100" y="110" text-anchor="middle" font-size="12">Adjust Kp,Ki,Kd</text>
+    
+    <text x="100" y="220" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Adaptive</text>
+    <text x="100" y="240" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Non-linear</text>
+    <text x="100" y="260" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Expert Rules</text>
+  </g>
+
+</svg>
