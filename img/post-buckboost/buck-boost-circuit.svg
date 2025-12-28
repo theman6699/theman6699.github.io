@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+  <!-- Background -->
+  <rect width="600" height="300" fill="#fff" />
+  
+  <!-- Components -->
+  <g stroke="#333" stroke-width="2" fill="none">
+    <!-- Vin Source -->
+    <circle cx="80" cy="150" r="20" />
+    <text x="65" y="155" font-family="Arial" font-size="14" stroke="none" fill="#333">Vin</text>
+    <line x1="80" y1="130" x2="80" y2="100" />
+    <line x1="80" y1="170" x2="80" y2="250" />
+    
+    <!-- Switch (MOSFET) -->
+    <line x1="80" y1="100" x2="180" y2="100" />
+    <rect x="180" y="90" width="40" height="20" fill="#fff" /> <!-- Switch Body -->
+    <line x1="220" y1="100" x2="300" y2="100" />
+    <text x="185" y="80" font-family="Arial" font-size="12" stroke="none" fill="#333">Switch</text>
+
+    <!-- Inductor (Shunt to ground) -->
+    <path d="M300,100 q5,0 5,10 t5,10 t5,10 t5,10 t5,10" /> <!-- Coil -->
+    <line x1="300" y1="150" x2="300" y2="250" />
+    <text x="310" y="180" font-family="Arial" font-size="12" stroke="none" fill="#333">L</text>
+
+    <!-- Diode (Series to output) -->
+    <!-- Inverting Buck-Boost: Diode is reversed, Anode at Output, Cathode at Inductor Node -->
+    <!-- Wait, current flows UP from ground through Load, then through Diode to Inductor? No. -->
+    <!-- ON: Vin -> L -> Gnd. Current Down. -->
+    <!-- OFF: L current continues Down. So it pulls from Diode. -->
+    <!-- So current flows from Diode Anode to Cathode. Cathode is at Inductor Node. -->
+    <!-- So Anode is at Output Capacitor. -->
+    <!-- So Diode points LEFT. -->
+    <line x1="300" y1="100" x2="400" y2="100" />
+    <polygon points="360,100 360,90 340,100 360,110" fill="#333" /> <!-- Diode pointing Left -->
+    <line x1="360" y1="90" x2="360" y2="110" /> <!-- Bar -->
+    <text x="350" y="80" font-family="Arial" font-size="12" stroke="none" fill="#333">D</text>
+
+    <!-- Capacitor -->
+    <line x1="450" y1="100" x2="450" y2="130" />
+    <line x1="430" y1="130" x2="470" y2="130" /> <!-- Plate 1 -->
+    <line x1="430" y1="140" x2="470" y2="140" /> <!-- Plate 2 -->
+    <line x1="450" y1="140" x2="450" y2="250" />
+    <text x="460" y="135" font-family="Arial" font-size="12" stroke="none" fill="#333">C</text>
+
+    <!-- Load Resistor -->
+    <line x1="550" y1="100" x2="550" y2="130" />
+    <polyline points="550,130 560,135 540,145 560,155 540,165 550,170" /> <!-- Zigzag -->
+    <line x1="550" y1="170" x2="550" y2="250" />
+    <text x="560" y="150" font-family="Arial" font-size="12" stroke="none" fill="#333">R_load</text>
+
+    <!-- Ground Line -->
+    <line x1="80" y1="250" x2="550" y2="250" />
+    
+    <!-- Output Voltage Label -->
+    <text x="500" y="270" font-family="Arial" font-size="12" stroke="none" fill="#333">Vo (Negative)</text>
+  </g>
+</svg>
