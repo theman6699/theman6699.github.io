@@ -63,6 +63,13 @@ kramdown:
 # Disqus settings
 #disqus_username: hux
 
+# Giscus settings
+giscus:
+  repo: theman6699/theman6699.github.io
+  repo_id: "R_kgDOQwHCzQ" # 请访问 https://giscus.app 获取
+  category: "Announcements"
+  category_id: "DIC_kwDOQwHCzc4C0UPF" # 请访问 https://giscus.app 获取
+
 # Netease settings
 netease_comment: false
 
