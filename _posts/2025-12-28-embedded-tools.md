@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "嵌入式开发常用在线工具集"
-subtitle:   "Embedded Development Online Tools Collection"
+title:      "个人收藏：嵌入式开发常用在线工具集"
+subtitle:   "整理了一些平时好用的在线工具"
 date:       2025-12-28
 author:     "Pigeon"
 header-img: "img/home-bg.jpg"

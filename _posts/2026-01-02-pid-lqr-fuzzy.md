@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "控制算法三巨头：PID、LQR 与 模糊PID 详解与实现"
-subtitle:   "从经典到现代，从原理到代码，一文搞懂三种主流控制策略"
+title:      "几种常用控制算法的学习总结：PID、LQR 与 模糊PID"
+subtitle:   "对三种主流控制策略的原理梳理与简单实现"
 date:       2026-01-02 12:00:00
 author:     "Pigeon"
 header-img: "img/post-bg-2015.jpg"

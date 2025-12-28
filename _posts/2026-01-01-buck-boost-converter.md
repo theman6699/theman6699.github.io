@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "Buck-Boost 变换器详解：原理、推导与 Simulink 仿真"
-subtitle:   "从零开始掌握升降压电路设计与仿真"
+title:      "Buck-Boost 变换器学习笔记：原理推导与 Simulink 仿真"
+subtitle:   "升降压电路的原理推导与仿真练习"
 date:       2026-01-01 12:00:00
 author:     "Pigeon"
 header-img: "img/post-bg-2015.jpg"
