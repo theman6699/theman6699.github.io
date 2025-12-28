@@ -19,6 +19,7 @@
     var mouse = { x: null, y: null };
 
     function resize() {
+        if (!canvas.parentElement) return;
         width = canvas.width = canvas.parentElement.offsetWidth;
         height = canvas.height = canvas.parentElement.offsetHeight;
     }
@@ -98,6 +99,7 @@
     }
 
     window.addEventListener('resize', resize);
+    window.addEventListener('load', resize); // 确保加载完成后再次调整大小
     
     // 监听 Header 区域的鼠标移动
     var header = document.querySelector('header.intro-header');
