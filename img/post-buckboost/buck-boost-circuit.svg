@@ -1,56 +1,124 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
-  <!-- Background -->
-  <rect width="600" height="300" fill="#fff" />
-  
-  <!-- Components -->
-  <g stroke="#333" stroke-width="2" fill="none">
-    <!-- Vin Source -->
-    <circle cx="80" cy="150" r="20" />
-    <text x="65" y="155" font-family="Arial" font-size="14" stroke="none" fill="#333">Vin</text>
-    <line x1="80" y1="130" x2="80" y2="100" />
-    <line x1="80" y1="170" x2="80" y2="250" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" style="background-color: white;">
+  <!-- Definitions for markers and patterns -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333" />
+    </marker>
+  </defs>
+
+  <!-- Main Circuit Group -->
+  <g stroke="#333" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
     
-    <!-- Switch (MOSFET) -->
-    <line x1="80" y1="100" x2="180" y2="100" />
-    <rect x="180" y="90" width="40" height="20" fill="#fff" /> <!-- Switch Body -->
-    <line x1="220" y1="100" x2="300" y2="100" />
-    <text x="185" y="80" font-family="Arial" font-size="12" stroke="none" fill="#333">Switch</text>
-
-    <!-- Inductor (Shunt to ground) -->
-    <path d="M300,100 q5,0 5,10 t5,10 t5,10 t5,10 t5,10" /> <!-- Coil -->
-    <line x1="300" y1="150" x2="300" y2="250" />
-    <text x="310" y="180" font-family="Arial" font-size="12" stroke="none" fill="#333">L</text>
-
-    <!-- Diode (Series to output) -->
-    <!-- Inverting Buck-Boost: Diode is reversed, Anode at Output, Cathode at Inductor Node -->
-    <!-- Wait, current flows UP from ground through Load, then through Diode to Inductor? No. -->
-    <!-- ON: Vin -> L -> Gnd. Current Down. -->
-    <!-- OFF: L current continues Down. So it pulls from Diode. -->
-    <!-- So current flows from Diode Anode to Cathode. Cathode is at Inductor Node. -->
-    <!-- So Anode is at Output Capacitor. -->
-    <!-- So Diode points LEFT. -->
-    <line x1="300" y1="100" x2="400" y2="100" />
-    <polygon points="360,100 360,90 340,100 360,110" fill="#333" /> <!-- Diode pointing Left -->
-    <line x1="360" y1="90" x2="360" y2="110" /> <!-- Bar -->
-    <text x="350" y="80" font-family="Arial" font-size="12" stroke="none" fill="#333">D</text>
-
-    <!-- Capacitor -->
-    <line x1="450" y1="100" x2="450" y2="130" />
-    <line x1="430" y1="130" x2="470" y2="130" /> <!-- Plate 1 -->
-    <line x1="430" y1="140" x2="470" y2="140" /> <!-- Plate 2 -->
-    <line x1="450" y1="140" x2="450" y2="250" />
-    <text x="460" y="135" font-family="Arial" font-size="12" stroke="none" fill="#333">C</text>
-
-    <!-- Load Resistor -->
-    <line x1="550" y1="100" x2="550" y2="130" />
-    <polyline points="550,130 560,135 540,145 560,155 540,165 550,170" /> <!-- Zigzag -->
-    <line x1="550" y1="170" x2="550" y2="250" />
-    <text x="560" y="150" font-family="Arial" font-size="12" stroke="none" fill="#333">R_load</text>
-
-    <!-- Ground Line -->
-    <line x1="80" y1="250" x2="550" y2="250" />
+    <!-- 1. Input Voltage Source (Vin) -->
+    <!-- Circle -->
+    <circle cx="100" cy="200" r="30" />
+    <!-- Plus/Minus -->
+    <path d="M100,180 L100,190 M95,185 L105,185" stroke-width="2" /> <!-- + -->
+    <path d="M95,215 L105,215" stroke-width="2" /> <!-- - -->
+    <!-- Label -->
+    <text x="60" y="205" font-family="Arial" font-size="16" stroke="none" fill="#333" text-anchor="end">Vin</text>
     
-    <!-- Output Voltage Label -->
-    <text x="500" y="270" font-family="Arial" font-size="12" stroke="none" fill="#333">Vo (Negative)</text>
+    <!-- Wires from Vin -->
+    <path d="M100,170 L100,100 L200,100" /> <!-- Top wire to Switch -->
+    <path d="M100,230 L100,300 L650,300" /> <!-- Bottom wire (Ground) -->
+
+    <!-- 2. Switch (MOSFET/IGBT style representation for clarity) -->
+    <!-- Gate -->
+    <line x1="220" y1="120" x2="220" y2="80" stroke-width="3" />
+    <!-- Source/Drain connection -->
+    <path d="M200,100 L220,100" />
+    <path d="M260,100 L280,100" />
+    <!-- Switch Lever (Open state representation) -->
+    <line x1="220" y1="100" x2="255" y2="85" />
+    <!-- Label -->
+    <text x="240" y="70" font-family="Arial" font-size="16" stroke="none" fill="#333" text-anchor="middle">S (Switch)</text>
+
+    <!-- Wire from Switch to Node A -->
+    <path d="M280,100 L350,100" />
+
+    <!-- 3. Inductor (L) - Shunt to Ground -->
+    <!-- Node A is at (350, 100) -->
+    <path d="M350,100 L350,140" />
+    <!-- Inductor Coils -->
+    <path d="M350,140 q-15,5 -15,15 t15,15 q-15,5 -15,15 t15,15 q-15,5 -15,15 t15,15 q-15,5 -15,15 t15,15" />
+    <path d="M350,260 L350,300" />
+    <!-- Label -->
+    <text x="320" y="220" font-family="Arial" font-size="16" stroke="none" fill="#333" text-anchor="end">L</text>
+
+    <!-- 4. Diode (D) - Series to Output -->
+    <!-- Connected between Node A (350, 100) and Node B (550, 100) -->
+    <!-- Orientation: Anode at Output (Right), Cathode at Input (Left) for Buck-Boost -->
+    <!-- Current flows Right to Left during OFF state -->
+    <!-- So Diode points LEFT -->
+    
+    <path d="M350,100 L420,100" /> <!-- Wire to Diode -->
+    
+    <!-- Diode Symbol (Pointing Left) -->
+    <g transform="translate(450, 100)">
+      <!-- Triangle pointing left -->
+      <polygon points="15,15 15,-15 -15,0" fill="#333" stroke="none" />
+      <!-- Bar on left -->
+      <line x1="-15" y1="-15" x2="-15" y2="15" stroke-width="4" />
+      <!-- Wire through -->
+      <line x1="-30" y1="0" x2="-15" y2="0" />
+      <line x1="15" y1="0" x2="30" y2="0" />
+    </g>
+    
+    <path d="M480,100 L550,100" /> <!-- Wire from Diode to Output Node -->
+    
+    <!-- Label -->
+    <text x="450" y="70" font-family="Arial" font-size="16" stroke="none" fill="#333" text-anchor="middle">D</text>
+
+    <!-- 5. Capacitor (C) -->
+    <!-- Node B is at (550, 100) -->
+    <path d="M550,100 L550,180" />
+    <!-- Plates -->
+    <line x1="530" y1="180" x2="570" y2="180" stroke-width="3" />
+    <line x1="530" y1="195" x2="570" y2="195" stroke-width="3" />
+    <path d="M550,195 L550,300" />
+    <!-- Label -->
+    <text x="520" y="200" font-family="Arial" font-size="16" stroke="none" fill="#333" text-anchor="end">C</text>
+
+    <!-- 6. Load Resistor (R) -->
+    <path d="M550,100 L650,100 L650,160" />
+    <!-- Zigzag -->
+    <polyline points="650,160 665,165 635,175 665,185 635,195 665,205 635,215 665,225 650,230" />
+    <path d="M650,230 L650,300" />
+    <!-- Label -->
+    <text x="670" y="200" font-family="Arial" font-size="16" stroke="none" fill="#333" text-anchor="start">R_load</text>
+
+    <!-- 7. Output Voltage Marker -->
+    <path d="M680,100 L700,100" stroke-width="1" />
+    <path d="M680,300 L700,300" stroke-width="1" />
+    <!-- Arrow -->
+    <path d="M690,120 L690,280" marker-start="url(#arrow)" marker-end="url(#arrow)" stroke-width="1" />
+    <text x="710" y="200" font-family="Arial" font-size="16" stroke="none" fill="#333">Vo (-)</text>
+
+    <!-- Ground Symbols -->
+    <g transform="translate(350, 300)">
+       <line x1="-15" y1="0" x2="15" y2="0" />
+       <line x1="-10" y1="5" x2="10" y2="5" />
+       <line x1="-5" y1="10" x2="5" y2="10" />
+    </g>
+    <g transform="translate(550, 300)">
+       <line x1="-15" y1="0" x2="15" y2="0" />
+       <line x1="-10" y1="5" x2="10" y2="5" />
+       <line x1="-5" y1="10" x2="5" y2="10" />
+    </g>
+    <g transform="translate(100, 300)">
+       <line x1="-15" y1="0" x2="15" y2="0" />
+       <line x1="-10" y1="5" x2="10" y2="5" />
+       <line x1="-5" y1="10" x2="5" y2="10" />
+    </g>
+
+    <!-- Current Loops (Optional, for clarity) -->
+    <!-- ON State Loop (Vin -> S -> L -> Gnd) -->
+    <path d="M120,120 Q200,120 250,150 T330,250" stroke="#2196f3" stroke-width="2" stroke-dasharray="5,5" fill="none" opacity="0.5" />
+    <text x="200" y="140" font-family="Arial" font-size="12" fill="#2196f3" stroke="none">ON State</text>
+
+    <!-- OFF State Loop (Gnd -> R/C -> D -> L) -->
+    <path d="M550,280 Q500,250 450,150 T370,120" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5" fill="none" opacity="0.5" />
+    <text x="480" y="250" font-family="Arial" font-size="12" fill="#e74c3c" stroke="none">OFF State</text>
+
   </g>
 </svg>
