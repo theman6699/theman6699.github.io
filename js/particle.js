@@ -8,11 +8,11 @@
     
     // 配置参数
     var config = {
-        count: 60, // 粒子数量
-        radius: 2, // 粒子半径
-        dist: 120, // 连线距离
+        count: 100, // 粒子数量
+        radius: 3, // 粒子半径
+        dist: 180, // 连线距离
         color: '255, 255, 255', // 粒子颜色 (RGB)
-        speed: 0.4 // 移动速度
+        speed: 0.8 // 移动速度
     };
 
     // 鼠标位置
@@ -43,7 +43,7 @@
     Particle.prototype.draw = function() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, config.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(' + config.color + ', 0.4)';
+        ctx.fillStyle = 'rgba(' + config.color + ', 0.8)';
         ctx.fill();
     };
 
