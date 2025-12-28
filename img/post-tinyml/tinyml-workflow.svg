@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <!-- Background -->
+  <rect width="800" height="300" fill="#fff" />
+  
+  <!-- Steps -->
+  <g transform="translate(50, 50)">
+    <!-- Step 1: Python -->
+    <rect x="0" y="0" width="140" height="100" rx="10" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" />
+    <text x="70" y="30" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#0d47a1">1. Python Training</text>
+    <text x="70" y="60" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">TensorFlow/Keras</text>
+    <text x="70" y="80" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Train Model</text>
+    
+    <!-- Arrow 1 -->
+    <path d="M140,50 L190,50" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+    <text x="165" y="40" font-family="Arial" font-size="10" text-anchor="middle">.h5 / .tflite</text>
+
+    <!-- Step 2: CubeMX -->
+    <rect x="190" y="0" width="140" height="100" rx="10" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" />
+    <text x="260" y="30" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#1b5e20">2. STM32CubeMX</text>
+    <text x="260" y="60" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">X-CUBE-AI Pack</text>
+    <text x="260" y="80" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Analyze & Generate</text>
+
+    <!-- Arrow 2 -->
+    <path d="M330,50 L380,50" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+    <text x="355" y="40" font-family="Arial" font-size="10" text-anchor="middle">C Code</text>
+
+    <!-- Step 3: IDE -->
+    <rect x="380" y="0" width="140" height="100" rx="10" fill="#fff3e0" stroke="#ff9800" stroke-width="2" />
+    <text x="450" y="30" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#e65100">3. STM32CubeIDE</text>
+    <text x="450" y="60" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Write App Logic</text>
+    <text x="450" y="80" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Compile</text>
+
+    <!-- Arrow 3 -->
+    <path d="M520,50 L570,50" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+    <text x="545" y="40" font-family="Arial" font-size="10" text-anchor="middle">.bin / .elf</text>
+
+    <!-- Step 4: MCU -->
+    <rect x="570" y="0" width="140" height="100" rx="10" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" />
+    <text x="640" y="30" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#4a148c">4. STM32 H750</text>
+    <text x="640" y="60" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">Run Inference</text>
+    <text x="640" y="80" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">TinyML!</text>
+  </g>
+
+  <!-- Definitions -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Bottom Note -->
+  <text x="400" y="200" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">
+    Workflow: Train on PC -> Convert with CubeMX -> Run on MCU
+  </text>
+</svg>
