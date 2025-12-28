@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#f8f9fa" />
+  
+  <!-- Blocks -->
+  <g stroke="#333" stroke-width="2" fill="#fff">
+    <!-- PI Controllers -->
+    <rect x="150" y="100" width="60" height="40" rx="5" />
+    <rect x="150" y="260" width="60" height="40" rx="5" />
+    
+    <!-- Inv Park -->
+    <rect x="250" y="160" width="80" height="80" rx="5" />
+    
+    <!-- Inv Clarke -->
+    <rect x="370" y="160" width="80" height="80" rx="5" />
+    
+    <!-- SVPWM -->
+    <rect x="490" y="160" width="80" height="80" rx="5" />
+    
+    <!-- Inverter -->
+    <rect x="610" y="160" width="60" height="80" rx="5" />
+    
+    <!-- Motor -->
+    <circle cx="730" cy="200" r="40" />
+    
+    <!-- Clarke -->
+    <rect x="370" y="320" width="80" height="60" rx="5" />
+    
+    <!-- Park -->
+    <rect x="250" y="320" width="80" height="60" rx="5" />
+  </g>
+
+  <!-- Text -->
+  <g font-family="Arial" font-size="12" text-anchor="middle" fill="#333">
+    <text x="180" y="125">PI (q)</text>
+    <text x="180" y="285">PI (d)</text>
+    <text x="290" y="195">Inv Park</text>
+    <text x="290" y="215">(dq->αβ)</text>
+    <text x="410" y="195">Inv Clarke</text>
+    <text x="410" y="215">(αβ->abc)</text>
+    <text x="530" y="205">SVPWM</text>
+    <text x="640" y="205">Inverter</text>
+    <text x="730" y="205">PMSM</text>
+    <text x="410" y="355">Clarke</text>
+    <text x="290" y="355">Park</text>
+    
+    <!-- Inputs -->
+    <text x="50" y="125">Iq_ref</text>
+    <text x="50" y="285">Id_ref</text>
+  </g>
+
+  <!-- Arrows -->
+  <g stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <defs>
+      <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L9,3 z" fill="#333" />
+      </marker>
+    </defs>
+    
+    <!-- Forward Path -->
+    <path d="M80,120 L150,120" /> <!-- Iq ref -->
+    <path d="M80,280 L150,280" /> <!-- Id ref -->
+    <path d="M210,120 L250,180" /> <!-- PI q out -->
+    <path d="M210,280 L250,220" /> <!-- PI d out -->
+    <path d="M330,200 L370,200" /> <!-- Inv Park out -->
+    <path d="M450,200 L490,200" /> <!-- Inv Clarke out -->
+    <path d="M570,200 L610,200" /> <!-- SVPWM out -->
+    <path d="M670,200 L690,200" /> <!-- Inverter out -->
+    
+    <!-- Feedback Path -->
+    <path d="M730,240 L730,350 L450,350" /> <!-- Motor to Clarke -->
+    <path d="M370,350 L330,350" /> <!-- Clarke to Park -->
+    <path d="M250,350 L120,350 L120,140 L150,140" /> <!-- Park to PI q -->
+    <path d="M250,350 L120,350 L120,260 L150,260" /> <!-- Park to PI d -->
+    
+    <!-- Angle Theta -->
+    <path d="M730,240 L730,300 L290,300 L290,320" /> <!-- Theta to Park -->
+    <path d="M290,300 L290,240" /> <!-- Theta to Inv Park -->
+  </g>
+</svg>

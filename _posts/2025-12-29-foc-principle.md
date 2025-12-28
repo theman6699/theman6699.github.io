@@ -42,12 +42,12 @@ FOC 的整个控制流程是一个闭环系统，主要包含以下几个步骤�
 6.  **SVPWM**：生成 PWM 波形驱动电机。
 
 ### FOC 控制框图
-![FOC Block Diagram](/img/post-foc/foc-diagram.png)
-*(请将 FOC 原理图命名为 foc-diagram.png 并放入 img/post-foc/ 文件夹中)*
+![FOC Block Diagram](/img/post-foc/foc-diagram.svg)
+*(图片来源: 自制示意图)*
 
 ### Park 变换示意图
-![Park Transform](/img/post-foc/park-transform.png)
-*(请将 Park 变换图命名为 park-transform.png 并放入 img/post-foc/ 文件夹中)*
+![Park Transform](/img/post-foc/park-transform.svg)
+*(图片来源: 自制示意图)*
 
 ---
 

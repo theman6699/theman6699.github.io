@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#fff" />
+  
+  <!-- Grid/Axes -->
+  <g stroke="#ddd" stroke-width="1">
+    <line x1="200" y1="0" x2="200" y2="400" />
+    <line x1="0" y1="200" x2="400" y2="200" />
+  </g>
+
+  <!-- Stationary Frame (Alpha-Beta) -->
+  <g stroke="#333" stroke-width="2" marker-end="url(#arrow)">
+    <line x1="200" y1="200" x2="380" y2="200" /> <!-- Alpha -->
+    <line x1="200" y1="200" x2="200" y2="20" />  <!-- Beta -->
+  </g>
+  <text x="370" y="190" font-family="Arial" font-size="14">α</text>
+  <text x="210" y="30" font-family="Arial" font-size="14">β</text>
+
+  <!-- Rotating Frame (d-q) -->
+  <g stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)">
+    <!-- Rotated by -30 degrees (visual representation) -->
+    <line x1="200" y1="200" x2="355.8" y2="110" /> <!-- d axis -->
+    <line x1="200" y1="200" x2="110" y2="44.2" />  <!-- q axis -->
+  </g>
+  <text x="360" y="100" font-family="Arial" font-size="14" fill="#e74c3c">d</text>
+  <text x="100" y="40" font-family="Arial" font-size="14" fill="#e74c3c">q</text>
+
+  <!-- Vector Is -->
+  <line x1="200" y1="200" x2="300" y2="80" stroke="#2980b9" stroke-width="3" marker-end="url(#arrow-blue)" />
+  <text x="310" y="70" font-family="Arial" font-size="14" fill="#2980b9">Is</text>
+
+  <!-- Angle Theta -->
+  <path d="M250,200 A50,50 0 0,0 243,175" fill="none" stroke="#333" stroke-dasharray="4" />
+  <text x="260" y="180" font-family="Arial" font-size="12">θ</text>
+
+  <!-- Definitions -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333" />
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e74c3c" />
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2980b9" />
+    </marker>
+  </defs>
+</svg>
