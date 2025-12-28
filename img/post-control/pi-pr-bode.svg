@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <!-- Background -->
+  <rect width="600" height="400" fill="#fff" />
+  
+  <!-- Grid -->
+  <g stroke="#eee" stroke-width="1">
+    <line x1="50" y1="50" x2="50" y2="350" />
+    <line x1="50" y1="350" x2="550" y2="350" />
+    <!-- Horizontal grid lines -->
+    <line x1="50" y1="250" x2="550" y2="250" />
+    <line x1="50" y1="150" x2="550" y2="150" />
+    <line x1="50" y1="50" x2="550" y2="50" />
+  </g>
+
+  <!-- Axes -->
+  <g stroke="#333" stroke-width="2">
+    <line x1="50" y1="350" x2="550" y2="350" /> <!-- X axis (Frequency) -->
+    <line x1="50" y1="350" x2="50" y2="30" />   <!-- Y axis (Gain dB) -->
+  </g>
+  
+  <!-- Labels -->
+  <text x="550" y="370" font-family="Arial" font-size="14" text-anchor="end">Frequency (Hz)</text>
+  <text x="40" y="40" font-family="Arial" font-size="14" text-anchor="end">Gain (dB)</text>
+  <text x="300" y="370" font-family="Arial" font-size="14" text-anchor="middle">f0 (50Hz)</text>
+
+  <!-- PI Curve (Blue) -->
+  <!-- High gain at low freq, dropping linearly -->
+  <path d="M52,50 Q100,250 550,340" fill="none" stroke="#2980b9" stroke-width="3" />
+  <text x="100" y="100" font-family="Arial" font-size="14" fill="#2980b9">PI Controller</text>
+
+  <!-- PR Curve (Red) -->
+  <!-- Flat then peak at f0 then drop -->
+  <path d="M52,300 L250,300 Q290,300 300,50 Q310,300 350,300 L550,300" fill="none" stroke="#e74c3c" stroke-width="3" />
+  <text x="350" y="100" font-family="Arial" font-size="14" fill="#e74c3c">PR Controller</text>
+  
+  <!-- Annotations -->
+  <line x1="300" y1="350" x2="300" y2="50" stroke="#999" stroke-dasharray="4" />
+  
+  <!-- Legend -->
+  <rect x="450" y="50" width="120" height="60" fill="#f9f9f9" stroke="#ddd" />
+  <line x1="460" y1="70" x2="490" y2="70" stroke="#2980b9" stroke-width="3" />
+  <text x="500" y="75" font-family="Arial" font-size="12">PI</text>
+  <line x1="460" y1="90" x2="490" y2="90" stroke="#e74c3c" stroke-width="3" />
+  <text x="500" y="95" font-family="Arial" font-size="12">PR</text>
+
+</svg>
