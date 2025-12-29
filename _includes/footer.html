@@ -440,14 +440,15 @@
 <script src="{{ "/js/circuit.js" | prepend: site.baseurl }}"></script>
 <!-- Matrix Rain Easter Egg -->
 <script>
-(function() {
+$(document).ready(function() {
     var clickCount = 0;
     var clickTimer = null;
-    var brand = document.getElementById('blog_brand');
+    var $brand = $('#blog_brand');
 
-    if (brand) {
-        brand.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent navigation for the first few clicks
+    if ($brand.length > 0) {
+        $brand.on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             
             clickCount++;
             
@@ -455,14 +456,14 @@
                 clearTimeout(clickTimer);
             }
             
-            // Reset count if no click within 500ms
+            // Reset count if no click within 600ms
             clickTimer = setTimeout(function() {
                 // If clicks < 5, proceed with default link behavior (navigate home)
                 if (clickCount < 5) {
-                    window.location.href = brand.href;
+                    window.location.href = $brand.attr('href');
                 }
                 clickCount = 0;
-            }, 500);
+            }, 600);
             
             if (clickCount >= 5) {
                 // Trigger Easter Egg
@@ -544,5 +545,5 @@
             canvas.height = window.innerHeight;
         });
     }
-})();
+});
 </script>
