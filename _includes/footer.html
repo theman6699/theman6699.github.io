@@ -438,3 +438,111 @@
 
 <!-- Circuit Background Effect -->
 <script src="{{ "/js/circuit.js" | prepend: site.baseurl }}"></script>
+<!-- Matrix Rain Easter Egg -->
+<script>
+(function() {
+    var clickCount = 0;
+    var clickTimer = null;
+    var brand = document.getElementById('blog_brand');
+
+    if (brand) {
+        brand.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent navigation for the first few clicks
+            
+            clickCount++;
+            
+            if (clickTimer) {
+                clearTimeout(clickTimer);
+            }
+            
+            // Reset count if no click within 500ms
+            clickTimer = setTimeout(function() {
+                // If clicks < 5, proceed with default link behavior (navigate home)
+                if (clickCount < 5) {
+                    window.location.href = brand.href;
+                }
+                clickCount = 0;
+            }, 500);
+            
+            if (clickCount >= 5) {
+                // Trigger Easter Egg
+                clearTimeout(clickTimer);
+                clickCount = 0;
+                startMatrixRain();
+            }
+        });
+    }
+
+    function startMatrixRain() {
+        // Create canvas
+        var canvas = document.createElement('canvas');
+        canvas.id = 'matrix-rain';
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.zIndex = '999999';
+        canvas.style.background = 'black';
+        canvas.style.cursor = 'pointer';
+        document.body.appendChild(canvas);
+
+        var ctx = canvas.getContext('2d');
+        
+        // Full screen
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Matrix characters
+        var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%^&*";
+        chars = chars.split("");
+
+        var fontSize = 16;
+        var columns = canvas.width / fontSize;
+        
+        // Array of drops - one per column
+        var drops = [];
+        for (var x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            // Black BG for the canvas
+            // Translucent BG to show trail
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#0F0"; // Green text
+            ctx.font = fontSize + "px monospace";
+
+            for (var i = 0; i < drops.length; i++) {
+                var text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                // Sending the drop back to the top randomly after it has crossed the screen
+                // Adding a randomness to the reset to make the drops scattered on the Y axis
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                // Incrementing Y coordinate
+                drops[i]++;
+            }
+        }
+
+        var interval = setInterval(draw, 33);
+
+        // Click to close
+        canvas.addEventListener('click', function() {
+            clearInterval(interval);
+            document.body.removeChild(canvas);
+        });
+        
+        // Resize handler
+        window.addEventListener('resize', function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    }
+})();
+</script>
