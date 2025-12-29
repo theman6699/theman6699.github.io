@@ -132,6 +132,17 @@
     }
 </style>
 
+<!-- Reading Progress Bar -->
+<div id="progress-bar" style="position:fixed; top:0; left:0; height:3px; background:#0085a1; z-index:99999; width:0%; transition: width 0.2s;"></div>
+<script>
+    window.onscroll = function() {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        document.getElementById("progress-bar").style.width = scrolled + "%";
+    };
+</script>
+
 <!-- async load function -->
 <script>
     function async(u, c) {

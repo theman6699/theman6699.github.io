@@ -7,6 +7,28 @@
     <meta name="keywords" content="{{ site.keyword }}">
     <meta name="theme-color" content="{{ site.chrome-tab-theme-color }}">
 
+    <!-- Custom Scrollbar Style -->
+    <style>
+        /* 滚动条整体部分 */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        /* 滚动条轨道 */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        /* 滚动条滑块 */
+        ::-webkit-scrollbar-thumb {
+            background: #888; 
+            border-radius: 5px;
+        }
+        /* 滚动条滑块悬停 */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+    </style>
+
     <!-- Open Graph -->
     <meta property="og:title"
         content="{% if page.title %}{{ page.title }} - {{ site.SEOTitle }}{% else %}{{ site.SEOTitle }}{% endif %}">
